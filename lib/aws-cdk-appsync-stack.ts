@@ -7,7 +7,7 @@ export class AwsCdkAppsyncStack extends cdk.Stack {
 
     const api = new appSync.GraphqlApi(this, "Api", {
       name: "cdk-notes-appsync-api",
-      schema: appSync.Schema.fromAsset("graphql/schema.graphql"),
+      schema: appSync.Schema.fromAsset(`${process.cwd()}/graphql/schemas/schema.gql`),
       authorizationConfig: {
         defaultAuthorization: {
           authorizationType: appSync.AuthorizationType.API_KEY,

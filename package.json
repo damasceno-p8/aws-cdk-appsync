@@ -5,7 +5,7 @@
     "aws-cdk-appsync": "bin/aws-cdk-appsync.js"
   },
   "scripts": {
-    "build": "tsc",
+    "build": "npx rimraf ./dist && tsc",
     "watch": "tsc -w",
     "test": "jest",
     "cdk": "cdk"
@@ -23,6 +23,7 @@
     "eslint-plugin-n": "^15.2.0",
     "eslint-plugin-promise": "^6.0.0",
     "jest": "^27.5.1",
+    "rimraf": "^3.0.2",
     "ts-jest": "^27.1.4",
     "ts-node": "^10.7.0",
     "typescript": "~3.9.7"
