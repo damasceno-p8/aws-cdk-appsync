@@ -4,7 +4,7 @@ import { Note } from './note';
 
 
 const docClient = new DynamoDB.DocumentClient();
-export async function createNote(note: Note) {
+export default async function createNote(note: Note) {
     const params = {
         TableName: String(process.env.NOTES_TABLE),
         Item: note

@@ -37,10 +37,10 @@ export class AwsCdkAppsyncStack extends cdk.Stack {
     })
 
     const notesLambda = new lambda.Function(this, 'AppSyncNotesHandler', {
-      runtime: lambda.Runtime.NODEJS_12_X,
+      runtime: lambda.Runtime.NODEJS_14_X,
       handler: 'main.handler',
-      code: lambda.Code.fromAsset(`${process.cwd()}/lib/functions`),
-      memorySize: 1024
+      code: lambda.Code.fromAsset(`dist/functions`),
+      memorySize: 1024,
     });
 
     const lambdaDs = api.addLambdaDataSource('lambdaDatasource', notesLambda);

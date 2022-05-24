@@ -13,7 +13,7 @@ type Params = {
     ReturnValues: string
 }
 
-export async function updateNote(note: any) {
+export default async function updateNote(note: any) {
     const params: UpdateItemInput & Params = {
         TableName: String(process.env.NOTES_TABLE),
         Key: {

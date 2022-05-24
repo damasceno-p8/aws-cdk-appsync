@@ -2,7 +2,7 @@ import { DynamoDB } from 'aws-sdk';
 
 const docClient = new DynamoDB.DocumentClient();
 
-export async function deleteNote(noteId: string) {
+export default async function deleteNote(noteId: string) {
     const params = {
         TableName: String(process.env.NOTES_TABLE),
         Key: {

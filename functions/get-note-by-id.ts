@@ -2,13 +2,14 @@ import { DynamoDB } from 'aws-sdk';
 
 const docClient = new DynamoDB.DocumentClient();
 
-export async function listNotes() {
+export default async function getNoteById(noteId: string) {
     const params = {
         TableName: String(process.env.NOTES_TABLE),
+        Key: { id: noteId }
     }
     try {
-        const data = await docClient.scan(params).promise()
-        return data.Items
+        const { Item } = await docClient.get(params).promise()
+        return Item
     } catch (err) {
         console.log('DynamoDB error: ', err)
         return null
